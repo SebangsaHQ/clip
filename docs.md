@@ -4,6 +4,7 @@ Clip adalah program yang berfungsi untuk menggali ringkasan informasi dai suatu 
 Clip ditulis dengan menggunakan bahasa pemrograman `GO`. Cara kerja clip adalah
 ketika ada request dari client untuk mencari _summary_ sebuah website, maka
 clip akan membuka website tersebut dan membaca _summary_-nya berdasarkan :
+ 
 1. OpenGraph Protocol >> http://ogp.me/
 2. Twitter Cards >> https://dev.twitter.com/cards/overview
 3. HTML Tag 
