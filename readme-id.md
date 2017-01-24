@@ -1,4 +1,5 @@
 Clip ?
+
 service yang dapat menggali informasi ringkas suatu website
 
 ## How To Use ##
@@ -23,4 +24,4 @@ silahkan lihat docs.md
 
 ## License ##
 
-This package is licensed under MIT license. See LICENSE for details.
+This package is licensed under MIT license. See `LICENSE.txt` for details.
