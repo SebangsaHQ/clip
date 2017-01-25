@@ -20,7 +20,7 @@ Clip digs informations from a given URL and then deliver the summary of a WEB (g
 - save as ".env" (*program will only read this name)
 
 ## Doc ##
-Please open docs.md
+[Wiki](https://github.com/SebangsaHQ/clip/wiki)
 
 ## License ##
 
