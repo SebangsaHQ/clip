@@ -1,8 +1,8 @@
-Clip ?
+# Clip
 
-service yang dapat menggali informasi ringkas suatu website
+Service yang dapat menggali informasi ringkas suatu website
 
-## How To Use ##
+## Cara Penggunaan ##
 1. Pastikan Golang sudah terinstall pada PC
 2. Clone Repo ini
 3. Jalankan perintah `go get .` on pada repo yang telah di-clone
@@ -14,14 +14,14 @@ service yang dapat menggali informasi ringkas suatu website
    ```
 7. Lihat hasilnya
 
-## How to config environment : ##
+## Mengkonfigurasi _environment_ : ##
 - Buka contoh file `.env` yang bernama `.env.example`
 - Edit file sesuai kebutuhan
 - save as dengan nama ".env"
 
-## Doc ##
-silahkan lihat docs.md
+## Dokumentasi ##
+[Lihat Dokumentasi](https://github.com/SebangsaHQ/clip/wiki)
 
-## License ##
+## Lisensi ##
 
 This package is licensed under MIT license. See `LICENSE.txt` for details.
