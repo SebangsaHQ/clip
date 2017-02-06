@@ -5,6 +5,8 @@ import (
     "net/url"
     "net/http"
     "gopkg.in/iconv.v1"
+    "io/ioutil"
+    "bytes"
 )
 
 
@@ -144,4 +146,36 @@ func (me *Grab) wrapEncoding(from string) {
 
     me.Title = cd.ConvString(me.Title)
     me.Description = cd.ConvString(me.Description)
+}
+
+func (me *Grab) wrapSIDURL() error {
+    if strings.Contains(strings.ToLower(me.Url), "://s.id") {
+        Logr.Info("wrapSIDURL")
+
+        client := &http.Client{}
+        req, err := http.NewRequest("GET", me.Url, nil)
+        if err != nil {
+            Logr.Errorf("Error when build NewRequest, :: %s", err.Error())
+            LogLine()
+            return err
+        }
+        userAgent := "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36"
+        req.Header.Set("User-Agent", userAgent)
+        resp, err := client.Do(req)
+        if err != nil {
+            Logr.Errorf("Error when getting url, :: %s", err.Error())
+            LogLine()
+            return err
+        }
+        defer resp.Body.Close()
+        res, err := ioutil.ReadAll(resp.Body)
+        if err != nil {
+            Logr.Error("error When Read resp.Body")
+            LogLine()
+            return err
+        }
+        me.Host = "sid"
+        MapMetaSpecific(bytes.NewBuffer(res), me)
+    }
+    return nil
 }

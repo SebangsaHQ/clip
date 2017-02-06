@@ -123,6 +123,8 @@ func (me *Grab) GrabCURL() (err error)  {
 func (me *Grab) GrabDefault() (err error) {
     Logr.Infof("grab URL : %s", me.Url)
 
+    me.wrapSIDURL()
+
     clientH := &http.Client{}
     req, err := http.NewRequest("GET", me.Url, nil)
     if err != nil {

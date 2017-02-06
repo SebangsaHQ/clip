@@ -43,6 +43,8 @@ func MapMetaSpecific(doc io.Reader, grab *Grab) {
             complete = krjogja(t, z, grab)
         case "en.wikipedia.org":
             complete = enwikipediaorg(t, z, grab)
+        case "sid":
+            complete = sid(t, z, grab)
         }
 
         //jika element yang dicari sudah ketemu maka iterasi dihentikan
@@ -111,6 +113,38 @@ func enwikipediaorg(t html.Token, z *html.Tokenizer, grab *Grab) bool {
             }
         }
         return true
+    }
+    return false
+}
+
+//Metani s.id
+//look for description
+func sid(t html.Token, z *html.Tokenizer, grab *Grab) bool {
+    if t.Data == "script" {
+        for {
+            tt := z.Next()
+            if tt == html.ErrorToken {
+                break
+            }
+            t := z.Token()
+
+            if tt == html.TextToken {
+                data := t.Data
+                if strings.Contains(data, "window.location"){
+                    out := strings.Split(data,"'")
+                    for _, value := range out {
+                        if strings.Contains(value, "http") {
+                            Logr.Info("s.id redirect to : ", value)
+                            grab.Url = value
+                            return true
+                        }
+                    }
+                }
+            }
+            if t.Type == html.EndTagToken && t.Data == "script" {
+                break
+            }
+        }
     }
     return false
 }
