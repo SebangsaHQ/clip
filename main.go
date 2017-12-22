@@ -1,6 +1,6 @@
 package main
 import (
-    "clip"
+    "github.com/sebangsaHQ/clip/src/clip"
     "github.com/gin-gonic/gin"
 
 //    "github.com/DeanThompson/ginpprof"
