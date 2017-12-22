@@ -14,6 +14,7 @@ type Handler interface {
 var HandlerList = []Handler {
 	NewImageHandler(),
 	NewHtmlHandler(),
+	NewPdfHandler(),
 }
 
 // Figure out how to choose right handler for content type

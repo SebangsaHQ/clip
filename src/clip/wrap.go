@@ -106,6 +106,7 @@ func (me *Grab) wrapContentType() {
         "audio",
         "json",
         "powerpoint",
+        "pdf",
     }
 
     for _, t := range types {
